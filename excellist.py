@@ -28,4 +28,3 @@ daily_increase = np.subtract(df_val1, df_val2) #subtracts the two values, findin
 print("The daily increase of cases in NHS Lothian is:", str(daily_increase).lstrip('[').rstrip(']')) #strips the brackets from numpy output and prints it as a string
 
 
-
