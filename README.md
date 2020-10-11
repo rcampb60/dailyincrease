@@ -5,3 +5,5 @@ A simple script to determine the daily increase of COVID-19 cases in NHS Scotlan
 The script relies on the user putting the Excel file from the Scottish Government's website into a location and updating the script to the location. Currently the script will take away row 218 from 217 to provide the difference. 
 
 My intention is to make the script more automatic through iteration to the point it will run automatically each day at 14:05 BST/GMT and download the file for the user.
+
+I have also created excellist.py which uses lists and numpy to relatively locate the last two numbers, subtract them using numpy and then strips the array of brackets. Finally print is used to create the output message.
