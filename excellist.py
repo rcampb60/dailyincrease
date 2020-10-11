@@ -16,6 +16,7 @@ print(r.status_code)
 print(r.encoding)
 
 data = pd.read_excel ('/mnt/f/Downloads/11102020.xlsx', skiprows=2, sheet_name='Table 1 - Cumulative cases')
+
 df = pd.DataFrame(data, columns= ['NHS Lothian'])
 
 df_list = [df.columns.values.tolist()] + df.values.tolist()
