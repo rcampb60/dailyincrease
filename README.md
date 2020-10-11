@@ -1,6 +1,6 @@
 # Daily Increase
 
-A simple script to determine the daily increase of COVID-19 cases in NHS Scotland for the previous 24 hours
+A simple script to determine the daily increase of COVID-19 cases in NHS Lothian for the previous 24 hours
 
 The user is asked for the location of the Excel document. This can be obtained by navigating to https://www.gov.scot/publications/coronavirus-covid-19-trends-in-daily-data/ after 2pm BST each day then right clicking on the COVID-19 Data by NHS Board [RELEVANT DATE HERE] file and clicking 'copy path'. 
 
