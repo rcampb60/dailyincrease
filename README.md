@@ -8,3 +8,10 @@ The user is then asked for the filename, extension and download path. The path s
 
 The script uses a combination of Pandas (to read the Xlsx data) and Numpy (to find the difference) as well as Requests to enable the file download.
 
+# Installation
+
+* Ensure you have [poetry](https://python-poetry.org/) installed on your system 
+* Open a terminal and go to your version of the code locally
+* Run `poetry install`
+* Run `poetry shell`
+* Open vscode from the command line `vscode .`
