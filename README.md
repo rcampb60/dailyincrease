@@ -14,4 +14,6 @@ The script uses a combination of Pandas (to read the Xlsx data) and Numpy (to fi
 * Open a terminal and go to your version of the code locally
 * Run `poetry install`
 * Run `poetry shell`
-* Open vscode from the command line `vscode .`
+* Run the script to load the Poetry env `poetry run vscode` (see [Workaround issue #8372](https://github.com/microsoft/vscode-python/issues/8372))
+* Open vscode from the command line `code .`
+* Select the interpreter (should be under your home directory: `~/.cache/pypoetry/virtualenvs/dailyincrease-<.....>-py3.8/bin/python`)
