@@ -1,19 +1,27 @@
-import pandas as pd #imports Pandas to use read_excel to read the excel file
-import numpy as np #imports numpy to allow for subtraction of the rows
-import requests #imports requests to allow for downloading of the excel file from the website directly
+import pandas as pd #imports the various modules to allow the script to run
+import numpy as np 
+import requests
+from datetime import datetime
+import calendar
+import os
 
-x = input("Please provide the relevant path to the COVID-19 Data by NHS Board Excel file on the Scottish Government's website: ") #this is the path to the file, found by right clicking
-y = input("Please provide the path, including filename AND extension, which you wish to use: ") #this asks the user to input the location of the download, and to specific the file name and extension
+y = input("Please name the excel file:") #asks the user for the file
+print("Retreiving file and calculating the daily increase")
 
-print('Beginning file download with requests')
+dateTimeObj = datetime.now() #retreives the date using datetime
+timestampStr = dateTimeObj.strftime("%d %m %Y") #changes the date into a string
+day = timestampStr[-10:-8] #slices the string to produce the 'day' value
+year = timestampStr[-4:] #slices the string to produce the 'year' value
+numberMonth = timestampStr[-7:-5] #slices the string to produce the 'month' value
+intMonth = calendar.month_name[int(numberMonth)] #changes the sliced string 'month' value into a integer and uses calendar to transform this in the written month name
+month = str(intMonth) #changes the month name back into a string
 
-url = x #uses the users input to provide the URL to the get request
+url = ('https://www.gov.scot/binaries/content/documents/govscot/publications/statistics/2020/04/coronavirus-covid-19-trends-in-daily-data/documents/covid-19-data-by-nhs-board/covid-19-data-by-nhs-board/govscot%3Adocument/COVID-19%2Bdaily%2Bdata%2B-%2Bby%2BNHS%2BBoard%2B-%2B'+day+'%2B'+month+'%2B'+year+'.xlsx')
 r = requests.get(url) 
 
 with open(y, 'wb') as f: #writes the file to the location the user specificed in y
     f.write(r.content)
 
-# Retrieve HTTP meta-data
 print(r.status_code)
 print(r.encoding)
 
@@ -26,3 +34,4 @@ df_val1 = df_list[-1] #indexes the last row
 df_val2 = df_list[-2] #indexes the second last row
 daily_increase = np.subtract(df_val1, df_val2) #subtracts the two values, finding daily increase
 print("The daily increase of cases in NHS Lothian is:", str(daily_increase).lstrip('[').rstrip(']')) #strips the brackets from numpy output and prints it as a string
+os.remove(y)
