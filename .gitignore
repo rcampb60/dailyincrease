@@ -1,21 +1,3 @@
-# Created by https://www.toptal.com/developers/gitignore/api/python,linux,vscode
-# Edit at https://www.toptal.com/developers/gitignore?templates=python,linux,vscode
-
-### Linux ###
-*~
-
-# temporary files which can be created if a process still has a handle open of a deleted file
-.fuse_hidden*
-
-# KDE directory preferences
-.directory
-
-# Linux trash folder which might appear on any partition or disk
-.Trash-*
-
-# .nfs files are created when an open file is removed but is still being accessed
-.nfs*
-
 ### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -96,11 +78,6 @@ doc/_build/
 target/
 
 # Jupyter Notebook
-.ipynb_checkpoints
-
-# IPython
-profile_default/
-ipython_config.py
 
 # pyenv
 .python-version
@@ -163,5 +140,3 @@ dmypy.json
 !.vscode/launch.json
 !.vscode/extensions.json
 *.code-workspace
-
-# End of https://www.toptal.com/developers/gitignore/api/python,linux,vscode

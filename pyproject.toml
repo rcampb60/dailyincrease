@@ -1,0 +1,26 @@
+[build-system]
+requires = [ "poetry>=0.12",]
+build-backend = "poetry.masonry.api"
+
+[tool.poetry]
+name = "dailyincrease"
+version = "0.1.0"
+description = ""
+authors = [ "Robbie Campbell <robbiecam@gmail.com>", "thoroc <thomas.a.roche@gmail.com>",]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+pandas = "^1.1.3"
+numpy = "^1.19.2"
+requests = "^2.24.0"
+pathlib = "^1.0.1"
+toml = "^0.10.1"
+gitpython = "^3.1.9"
+
+[tool.poetry.dev-dependencies]
+flake8 = "^3.8.4"
+autopep8 = "^1.5.4"
+
+[tool.poetry.scripts]
+vscode = "scripts:vscode"
+authors = "scripts:update_authors"
