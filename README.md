@@ -1,12 +1,10 @@
 # Daily Increase
 
-A simple script to determine the daily increase of COVID-19 cases in NHS Lothian for the previous 24 hours
+A simple script to determine the daily increase of COVID-19 cases in NHS Lothian for the previous 24 hours.
 
-The user is asked for the location of the Excel document. This can be obtained by navigating to https://www.gov.scot/publications/coronavirus-covid-19-trends-in-daily-data/ after 2pm BST each day then right clicking on the COVID-19 Data by NHS Board [RELEVANT DATE HERE] file and clicking 'copy path'. 
+The user is asked to provide a name for the Excel file which is downloaded into the scripts' directory, read and then deleted. The script then produces the output. 
 
-The user is then asked for the filename, extension and download path. The path should be along the lines of /user/downloads/filename.xlsx and should be unique. Personally I've used the format DDMMYYYY.xlsx for clarity. 
-
-The script uses a combination of Pandas (to read the Xlsx data) and Numpy (to find the difference) as well as Requests to enable the file download.
+Recent updates have allowed the script to determine the date from the user's system clock. The date data is then manipulated and inserted into the hard-coded URL to allow Requests to pull the file down. 
 
 # Installation
 
