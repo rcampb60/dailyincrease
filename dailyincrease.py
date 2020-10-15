@@ -1,20 +1,20 @@
-import pandas as pd #imports Pandas to use read_excel to read the excel file
-import numpy as np #imports numpy to allow for subtraction of the rows
+import pandas as pd #imports the various modules to allow the script to run
+import numpy as np 
 import requests
 from datetime import datetime
 import calendar
 import os
 
-y = input("Please name the excel file:")
+y = input("Please name the excel file:") #asks the user for the file
 print("Retreiving file and calculating the daily increase")
 
-dateTimeObj = datetime.now()
-timestampStr = dateTimeObj.strftime("%d %m %Y")
-day = timestampStr[-10:-8]
-year = timestampStr[-4:]
-numberMonth = timestampStr[-7:-5]
-intMonth = calendar.month_name[int(numberMonth)]
-month = str(intMonth)
+dateTimeObj = datetime.now() #retreives the date using datetime
+timestampStr = dateTimeObj.strftime("%d %m %Y") #changes the date into a string
+day = timestampStr[-10:-8] #slices the string to produce the 'day' value
+year = timestampStr[-4:] #slices the string to produce the 'year' value
+numberMonth = timestampStr[-7:-5] #slices the string to produce the 'month' value
+intMonth = calendar.month_name[int(numberMonth)] #changes the sliced string 'month' value into a integer and uses calendar to transform this in the written month name
+month = str(intMonth) #changes the month name back into a string
 
 url = ('https://www.gov.scot/binaries/content/documents/govscot/publications/statistics/2020/04/coronavirus-covid-19-trends-in-daily-data/documents/covid-19-data-by-nhs-board/covid-19-data-by-nhs-board/govscot%3Adocument/COVID-19%2Bdaily%2Bdata%2B-%2Bby%2BNHS%2BBoard%2B-%2B'+day+'%2B'+month+'%2B'+year+'.xlsx')
 r = requests.get(url) 
