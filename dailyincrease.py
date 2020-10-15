@@ -1,12 +1,22 @@
 import pandas as pd #imports Pandas to use read_excel to read the excel file
 import numpy as np #imports numpy to allow for subtraction of the rows
 import requests
+from datetime import datetime
+import calendar
+import os
 
-x = input('Please enter the day, i.e. 15 for the 15th: ')
-y = input('Please enter the month: ')
-z = input('Please enter the year: ')
+y = input("Please name the excel file:")
+print("Retreiving file and calculating the daily increase")
 
-url = ('https://www.gov.scot/binaries/content/documents/govscot/publications/statistics/2020/04/coronavirus-covid-19-trends-in-daily-data/documents/covid-19-data-by-nhs-board/covid-19-data-by-nhs-board/govscot%3Adocument/COVID-19%2Bdaily%2Bdata%2B-%2Bby%2BNHS%2BBoard%2B-%2B'+x+'%2B'+y+'%2B'+z+'.xlsx')
+dateTimeObj = datetime.now()
+timestampStr = dateTimeObj.strftime("%d %m %Y")
+day = timestampStr[-10:-8]
+year = timestampStr[-4:]
+numberMonth = timestampStr[-7:-5]
+intMonth = calendar.month_name[int(numberMonth)]
+month = str(intMonth)
+
+url = ('https://www.gov.scot/binaries/content/documents/govscot/publications/statistics/2020/04/coronavirus-covid-19-trends-in-daily-data/documents/covid-19-data-by-nhs-board/covid-19-data-by-nhs-board/govscot%3Adocument/COVID-19%2Bdaily%2Bdata%2B-%2Bby%2BNHS%2BBoard%2B-%2B'+day+'%2B'+month+'%2B'+year+'.xlsx')
 r = requests.get(url) 
 
 with open(y, 'wb') as f: #writes the file to the location the user specificed in y
@@ -24,3 +34,4 @@ df_val1 = df_list[-1] #indexes the last row
 df_val2 = df_list[-2] #indexes the second last row
 daily_increase = np.subtract(df_val1, df_val2) #subtracts the two values, finding daily increase
 print("The daily increase of cases in NHS Lothian is:", str(daily_increase).lstrip('[').rstrip(']')) #strips the brackets from numpy output and prints it as a string
+os.remove(y)
