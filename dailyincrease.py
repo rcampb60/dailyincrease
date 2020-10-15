@@ -1,19 +1,17 @@
 import pandas as pd #imports Pandas to use read_excel to read the excel file
 import numpy as np #imports numpy to allow for subtraction of the rows
-import requests #imports requests to allow for downloading of the excel file from the website directly
+import requests
 
-x = input("Please provide the relevant path to the COVID-19 Data by NHS Board Excel file on the Scottish Government's website: ") #this is the path to the file, found by right clicking
-y = input("Please provide the path, including filename AND extension, which you wish to use: ") #this asks the user to input the location of the download, and to specific the file name and extension
+x = input('Please enter the day, i.e. 15 for the 15th: ')
+y = input('Please enter the month: ')
+z = input('Please enter the year: ')
 
-print('Beginning file download with requests')
-
-url = x #uses the users input to provide the URL to the get request
+url = ('https://www.gov.scot/binaries/content/documents/govscot/publications/statistics/2020/04/coronavirus-covid-19-trends-in-daily-data/documents/covid-19-data-by-nhs-board/covid-19-data-by-nhs-board/govscot%3Adocument/COVID-19%2Bdaily%2Bdata%2B-%2Bby%2BNHS%2BBoard%2B-%2B'+x+'%2B'+y+'%2B'+z+'.xlsx')
 r = requests.get(url) 
 
 with open(y, 'wb') as f: #writes the file to the location the user specificed in y
     f.write(r.content)
 
-# Retrieve HTTP meta-data
 print(r.status_code)
 print(r.encoding)
 
